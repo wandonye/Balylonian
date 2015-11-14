@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TranslateViewController" customModule="app" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="mrh-go-Ijb" id="h8u-ei-kK6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController nibName="TranslateViewController" id="SEK-pr-ShX" customClass="TranslateViewController" customModule="app" customModuleProvider="target">
+            <layoutGuides>
+                <viewControllerLayoutGuide type="top" id="zSc-HZ-oTF"/>
+                <viewControllerLayoutGuide type="bottom" id="kwA-2l-vTd"/>
+            </layoutGuides>
+            <view key="view" contentMode="scaleToFill" id="mrh-go-Ijb">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIQ-WK-dQR">
+                        <rect key="frame" x="242.5" y="25" width="115" height="110"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="110" id="6DK-Lq-3r4"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="110" id="UuJ-no-FwR"/>
+                            <constraint firstAttribute="width" constant="115" id="VSs-zw-TNH"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="115" id="Wkl-sv-nhW"/>
+                        </constraints>
+                        <state key="normal" title="Press and Hold" backgroundImage="recorder.png">
+                            <color key="titleColor" red="0.31665710699999999" green="0.35615919530000001" blue="0.37540183910000002" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="iIQ-WK-dQR" firstAttribute="centerX" secondItem="mrh-go-Ijb" secondAttribute="centerX" id="aQr-WQ-pGk"/>
+                    <constraint firstItem="iIQ-WK-dQR" firstAttribute="top" secondItem="zSc-HZ-oTF" secondAttribute="bottom" constant="5" id="wdV-5S-fNg"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="204" y="-139"/>
+        </viewController>
+    </objects>
+    <resources>
+        <image name="recorder.png" width="300" height="300"/>
+    </resources>
+</document>
