@@ -232,7 +232,6 @@
 		30C991C21BF6D202007FA47F /* pictures_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 30C991C11BF6D202007FA47F /* pictures_gray.png */; };
 		30C991C41BF6DE27007FA47F /* text_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 30C991C31BF6DE27007FA47F /* text_gray.png */; };
 		30C991C81BF79FA4007FA47F /* TranslatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C991C71BF79FA4007FA47F /* TranslatorView.swift */; };
-		30C991CD1BF7E4E4007FA47F /* FindTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C991CC1BF7E4E4007FA47F /* FindTranslator.swift */; };
 		30C991CF1BF81A53007FA47F /* TranslateTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C991CE1BF81A53007FA47F /* TranslateTabView.swift */; };
 		30C991D11BF81ADD007FA47F /* TranslateTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30C991D01BF81ADD007FA47F /* TranslateTabView.xib */; };
 		30E468851BEF43C1005BEA91 /* mic_talk.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E468831BEF43C0005BEA91 /* mic_talk.png */; };
@@ -616,7 +615,6 @@
 		30C991C11BF6D202007FA47F /* pictures_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pictures_gray.png; sourceTree = "<group>"; };
 		30C991C31BF6DE27007FA47F /* text_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text_gray.png; sourceTree = "<group>"; };
 		30C991C71BF79FA4007FA47F /* TranslatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TranslatorView.swift; path = Translate/TranslatorView.swift; sourceTree = "<group>"; };
-		30C991CC1BF7E4E4007FA47F /* FindTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindTranslator.swift; path = Translate/FindTranslator.swift; sourceTree = "<group>"; };
 		30C991CE1BF81A53007FA47F /* TranslateTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TranslateTabView.swift; path = 05_Translist/TranslateTabView.swift; sourceTree = "<group>"; };
 		30C991D01BF81ADD007FA47F /* TranslateTabView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TranslateTabView.xib; path = 05_Translist/TranslateTabView.xib; sourceTree = "<group>"; };
 		30E468831BEF43C0005BEA91 /* mic_talk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic_talk.png; sourceTree = "<group>"; };
@@ -1606,7 +1604,6 @@
 				30E718511BEF097700770AA1 /* TransView.swift */,
 				30C991C71BF79FA4007FA47F /* TranslatorView.swift */,
 				30C991B71BF6AC4E007FA47F /* TopTabBar.swift */,
-				30C991CC1BF7E4E4007FA47F /* FindTranslator.swift */,
 				306FBB081BED505A001C97BF /* app-Bridging-Header.h */,
 				30E718491BED8DB200770AA1 /* TranslateView.swift */,
 			);
@@ -1817,7 +1814,6 @@
 				29B58D111BD7933700F1C7A0 /* people.m in Sources */,
 				29B58C2E1BD7932F00F1C7A0 /* RNEncryptor.m in Sources */,
 				29B58C061BD7932F00F1C7A0 /* JSQMessagesBubbleImageFactory.m in Sources */,
-				30C991CD1BF7E4E4007FA47F /* FindTranslator.swift in Sources */,
 				29B58BF01BD7932F00F1C7A0 /* CLLocation+Utils.m in Sources */,
 				29B58D121BD7933700F1C7A0 /* PFUser+Util.m in Sources */,
 				29B58CE91BD7933600F1C7A0 /* PremiumView.m in Sources */,

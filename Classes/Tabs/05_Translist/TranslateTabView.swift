@@ -55,7 +55,25 @@ class TranslateTabView: UIViewController, UIPickerViewDataSource, UIPickerViewDe
     
     @IBAction func startTransView(sender: AnyObject) {
         self.statusLabel.hidden = false
-        self.statusSpinner.startAnimating()
+        //self.statusSpinner.startAnimating()
         self.transButton.enabled = false
+        print(findTranslator()?.objectId)
+        let transView = TransView.init(with: UIDevice.currentDevice().identifierForVendor?.UUIDString)
+        
+        self.navigationController?.pushViewController(transView, animated: true)
+        //self.presentViewController(transView, animated: true, completion: nil)
+    }
+    
+    func findTranslator()->PFObject? {
+        let users = PFQuery(className: PF_USER_CLASS_NAME)
+        //let users = PFUser.query()
+        users.addDescendingOrder("updatedAt")
+        do {
+            return try users.getFirstObject()
+        }
+        catch {
+            print("no user available")
+        }
+        return nil
     }
 }
