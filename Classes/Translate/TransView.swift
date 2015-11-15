@@ -85,7 +85,7 @@ class TransView: ChatView, AVAudioRecorderDelegate {
         textButton.setTitle("Text", forState: .Normal)
         textButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
         textButton.frame = CGRectMake(0, 0, buttonWidth, 32)
-        center.x = buttonWidth/2
+        center.x = buttonWidth*3/2
         textButton.center = center
         textButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
         textButton.setImage(UIImage(named: "text_gray.png") as UIImage?, forState: .Normal)
@@ -110,7 +110,7 @@ class TransView: ChatView, AVAudioRecorderDelegate {
             self.inputToolbar?.hidden = false
         }
         else {
-            self.inputToolbar?.hidden = false
+            self.inputToolbar?.hidden = true
         }
     }
 

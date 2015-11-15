@@ -17,7 +17,7 @@
 #import "SettingsView.h"
 #import "WelcomeView.h"
 
-@class TransView;
+@class TranslateTabView;
 
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -29,7 +29,7 @@
 @property (strong, nonatomic) UIViewController *loginController;
 
 @property (strong, nonatomic) RecentView *recentView;
-@property (strong, nonatomic) TransView *transView;
+@property (strong, nonatomic) TranslateTabView *transView;
 @property (strong, nonatomic) PeopleView *peopleView;
 @property (strong, nonatomic) SettingsView *settingsView;
 

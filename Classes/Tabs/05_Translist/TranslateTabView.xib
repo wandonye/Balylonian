@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TranslateTabView" customModule="app" customModuleProvider="target">
+            <connections>
+                <outlet property="langPicker1" destination="fxz-kJ-UNG" id="yhA-GX-HJ9"/>
+                <outlet property="langPicker2" destination="l3x-63-fj2" id="wK2-KJ-Ioa"/>
+                <outlet property="statusLabel" destination="D2R-dU-fFG" id="z61-fZ-sOa"/>
+                <outlet property="statusSpinner" destination="qbJ-ef-7d1" id="Z2S-Sl-o83"/>
+                <outlet property="transButton" destination="epf-Ba-Hu7" id="hV2-jh-KFg"/>
+                <outlet property="view" destination="iN0-l3-epB" id="V1g-GL-uxc"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;-&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnR-KI-GVV">
+                    <rect key="frame" x="285" y="290" width="29" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3x-63-fj2">
+                    <rect key="frame" x="475" y="192" width="80" height="216"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="BY1-en-Si8"/>
+                    </constraints>
+                </pickerView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epf-Ba-Hu7">
+                    <rect key="frame" x="232" y="466" width="135" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="Find a Translator"/>
+                    <connections>
+                        <action selector="startTransView:" destination="-1" eventType="touchDown" id="gQB-Q6-vOm"/>
+                    </connections>
+                </button>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxz-kJ-UNG">
+                    <rect key="frame" x="45" y="192" width="80" height="216"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="8sY-l0-h86"/>
+                    </constraints>
+                </pickerView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="qbJ-ef-7d1">
+                    <rect key="frame" x="280" y="120.5" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="a0F-3B-2cc"/>
+                        <constraint firstAttribute="width" constant="40" id="lRT-pv-9GX"/>
+                    </constraints>
+                </activityIndicatorView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matching Translator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2R-dU-fFG">
+                    <rect key="frame" x="223" y="80" width="153" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="l3x-63-fj2" secondAttribute="trailing" constant="45" id="2sL-xH-Diz"/>
+                <constraint firstItem="qbJ-ef-7d1" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3Ac-lh-D1f"/>
+                <constraint firstItem="D2R-dU-fFG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="80" id="6ub-XM-uH8"/>
+                <constraint firstItem="epf-Ba-Hu7" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="74R-48-xpR"/>
+                <constraint firstItem="D2R-dU-fFG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="8iF-JG-nzv"/>
+                <constraint firstItem="fxz-kJ-UNG" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="JoY-dY-6J2"/>
+                <constraint firstItem="qbJ-ef-7d1" firstAttribute="top" secondItem="D2R-dU-fFG" secondAttribute="bottom" constant="20" id="Mci-sr-YfL"/>
+                <constraint firstItem="l3x-63-fj2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="TiI-rw-PIE"/>
+                <constraint firstItem="fxz-kJ-UNG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="45" id="dEh-yG-CYc"/>
+                <constraint firstItem="CnR-KI-GVV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gNB-nc-Obl"/>
+                <constraint firstAttribute="bottom" secondItem="epf-Ba-Hu7" secondAttribute="bottom" constant="100" id="hG9-Ov-AfI"/>
+                <constraint firstItem="CnR-KI-GVV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zR4-vY-NaL"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

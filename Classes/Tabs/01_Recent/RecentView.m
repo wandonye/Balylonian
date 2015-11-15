@@ -93,8 +93,8 @@
 {
 	if (([PFUser currentUser] == nil) || (firebase != nil)) return;
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	firebase = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"%@/Recent", FIREBASE]];
-	FQuery *query = [[firebase queryOrderedByChild:@"userId"] queryEqualToValue:[PFUser currentId]];
+	firebase = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"%@/TranslatorChat", FIREBASE]];
+	FQuery *query = [[firebase queryOrderedByChild:@"translatorId"] queryEqualToValue:[PFUser currentId]];
 	[query observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot)
 	{
 		[recents removeAllObjects];

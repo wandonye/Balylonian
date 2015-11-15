@@ -48,7 +48,8 @@
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.transView = [[TransView alloc] initWith:[[[UIDevice currentDevice] identifierForVendor] UUIDString]];
+    //self.transView = [[TransView alloc] initWith:[[[UIDevice currentDevice] identifierForVendor] UUIDString]];
+    self.transView = [[TranslateTabView alloc] initWithNibName:@"TranslateTabView" bundle:nil];
 	self.recentView = [[RecentView alloc] initWithNibName:@"RecentView" bundle:nil];
 	//self.groupsView = [[GroupsView alloc] initWithNibName:@"GroupsView" bundle:nil];
 	self.peopleView = [[PeopleView alloc] initWithNibName:@"PeopleView" bundle:nil];
