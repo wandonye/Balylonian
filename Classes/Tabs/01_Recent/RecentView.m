@@ -45,7 +45,7 @@
 	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
 	{
 		[self.tabBarItem setImage:[UIImage imageNamed:@"tab_recent"]];
-		self.tabBarItem.title = @"Recent";
+		self.tabBarItem.title = @"History";
 		//-----------------------------------------------------------------------------------------------------------------------------------------
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadRecents) name:NOTIFICATION_APP_STARTED object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadRecents) name:NOTIFICATION_USER_LOGGED_IN object:nil];
@@ -59,13 +59,13 @@
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	[super viewDidLoad];
-	self.title = @"Recent";
+	self.title = @"History";
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	//self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Maps" style:UIBarButtonItemStylePlain target:self
 	//																					   action:@selector(actionMaps)];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self
-																						   action:@selector(actionCompose)];
+	//self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self
+	//																					   action:@selector(actionCompose)];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	[self.tableView registerNib:[UINib nibWithNibName:@"RecentCell" bundle:nil] forCellReuseIdentifier:@"RecentCell"];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
@@ -93,8 +93,8 @@
 {
 	if (([PFUser currentUser] == nil) || (firebase != nil)) return;
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	firebase = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"%@/TranslatorChat", FIREBASE]];
-	FQuery *query = [[firebase queryOrderedByChild:@"translatorId"] queryEqualToValue:[PFUser currentId]];
+	firebase = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"%@/Recent", FIREBASE]];
+	FQuery *query = [[firebase queryOrderedByChild:@"userId"] queryEqualToValue:[PFUser currentId]];
 	[query observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot)
 	{
 		[recents removeAllObjects];
@@ -131,7 +131,7 @@
 		total += [recent[@"counter"] intValue];
 	}
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	UITabBarItem *item = self.tabBarController.tabBar.items[0];
+	UITabBarItem *item = self.tabBarController.tabBar.items[2];
 	item.badgeValue = (total == 0) ? nil : [NSString stringWithFormat:@"%d", total];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	[UIApplication sharedApplication].applicationIconBadgeNumber = total;
@@ -173,7 +173,6 @@
     //TranslateView *translateView = [[TranslateView alloc]initWithNibName:@"TranslateView" bundle:nil groupId:groupId];
     translateView.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:translateView animated:YES];
-	//ChatView *chatView = [[ChatView alloc] initWith:groupId];
 	//chatView.hidesBottomBarWhenPushed = YES;
 	//[self.navigationController pushViewController:chatView animated:YES];
 }

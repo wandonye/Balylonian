@@ -21,5 +21,4 @@
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 @interface RecentView : UITableViewController <MapsDelegate, SelectSingleDelegate, SelectMultipleDelegate, AddressBookDelegate, FacebookFriendsDelegate, SelectDistanceDelegate>
 //-------------------------------------------------------------------------------------------------------------------------------------------------
-
 @end

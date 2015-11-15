@@ -40,6 +40,15 @@ class TranslateTabView: UIViewController, UIPickerViewDataSource, UIPickerViewDe
         langPicker2.dataSource = self
         langPicker2.delegate = self
         self.statusSpinner.hidesWhenStopped = true
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if (PFUser.currentUser() == nil)
+        {
+            LoginUser(self)
+        }
     }
     //MARK: - Delegates and data sources
     //MARK: Data Sources
@@ -57,8 +66,10 @@ class TranslateTabView: UIViewController, UIPickerViewDataSource, UIPickerViewDe
         self.statusLabel.hidden = false
         //self.statusSpinner.startAnimating()
         self.transButton.enabled = false
-        print(findTranslator()?.objectId)
-        let transView = TransView.init(with: UIDevice.currentDevice().identifierForVendor?.UUIDString)
+        let translator = findTranslator() as! PFUser
+        print(translator.objectId)
+        let groupId = StartPrivateChat(PFUser.currentUser(), translator)
+        let transView = TransView.init(with: groupId)
         
         self.navigationController?.pushViewController(transView, animated: true)
         //self.presentViewController(transView, animated: true, completion: nil)

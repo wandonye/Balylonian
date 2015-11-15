@@ -12,7 +12,7 @@ class TranslateViewController: ChatView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.inputToolbar?.hidden = true
+        self.inputToolbar?.hidden = true
         // Do any additional setup after loading the view.
     }
 

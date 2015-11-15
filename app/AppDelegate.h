@@ -18,6 +18,7 @@
 #import "WelcomeView.h"
 
 @class TranslateTabView;
+@class TranslatorView;
 
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -30,7 +31,9 @@
 
 @property (strong, nonatomic) RecentView *recentView;
 @property (strong, nonatomic) TranslateTabView *transView;
-@property (strong, nonatomic) PeopleView *peopleView;
+@property (strong, nonatomic) TranslatorView *translatorView;
+
+//@property (strong, nonatomic) PeopleView *peopleView;
 @property (strong, nonatomic) SettingsView *settingsView;
 
 @property (strong, nonatomic) CLLocationManager *locationManager;

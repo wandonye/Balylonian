@@ -15,6 +15,7 @@ class TransView: ChatView, AVAudioRecorderDelegate {
     let cameraButton = UIButton()
     let pictureButton = UIButton()
     let textButton = UIButton()
+    let closeButton = UIButton()
     let topTapbar = TopTabBar()
     
     override init!(with groupId_: String!) {
@@ -73,7 +74,7 @@ class TransView: ChatView, AVAudioRecorderDelegate {
         self.view.addSubview(cameraButton)
         
         pictureButton.setTitle("Picture", forState: .Normal)
-        pictureButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        //pictureButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
         pictureButton.frame = CGRectMake(0, 0, buttonWidth, 32)
         center.x = center.x - buttonWidth
         pictureButton.center = center
@@ -83,7 +84,7 @@ class TransView: ChatView, AVAudioRecorderDelegate {
         self.view.addSubview(pictureButton)
 
         textButton.setTitle("Text", forState: .Normal)
-        textButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        //textButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
         textButton.frame = CGRectMake(0, 0, buttonWidth, 32)
         center.x = buttonWidth*3/2
         textButton.center = center
@@ -91,6 +92,16 @@ class TransView: ChatView, AVAudioRecorderDelegate {
         textButton.setImage(UIImage(named: "text_gray.png") as UIImage?, forState: .Normal)
         textButton.addTarget(self, action: "textMessage:", forControlEvents: .TouchDown)
         self.view.addSubview(textButton)
+        
+        closeButton.setTitle("Close", forState: .Normal)
+        //closeButton.setTitleColor(UIColor.blueColor(), forState: .Normal)
+        closeButton.frame = CGRectMake(0, 0, buttonWidth, 32)
+        center.x = buttonWidth/2
+        closeButton.center = center
+        closeButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        closeButton.setImage(UIImage(named: "close_gray.png") as UIImage?, forState: .Normal)
+        closeButton.addTarget(self, action: "terminateTranslate:", forControlEvents: .TouchDown)
+        self.view.addSubview(closeButton)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -112,6 +123,11 @@ class TransView: ChatView, AVAudioRecorderDelegate {
         else {
             self.inputToolbar?.hidden = true
         }
+    }
+    
+    func terminateTranslate(sender:UIButton!) {
+        let translateTabView = TranslateTabView(nibName: "TranslateTabView", bundle: nil)
+        self.navigationController?.pushViewController(translateTabView, animated: true)
     }
 
     override func didReceiveMemoryWarning() {

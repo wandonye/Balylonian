@@ -48,20 +48,21 @@
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    //self.transView = [[TransView alloc] initWith:[[[UIDevice currentDevice] identifierForVendor] UUIDString]];
     self.transView = [[TranslateTabView alloc] initWithNibName:@"TranslateTabView" bundle:nil];
 	self.recentView = [[RecentView alloc] initWithNibName:@"RecentView" bundle:nil];
+    self.translatorView = [[TranslatorView alloc] initWithNibName:@"RecentView" bundle:nil];
 	//self.groupsView = [[GroupsView alloc] initWithNibName:@"GroupsView" bundle:nil];
-	self.peopleView = [[PeopleView alloc] initWithNibName:@"PeopleView" bundle:nil];
+	//self.peopleView = [[PeopleView alloc] initWithNibName:@"PeopleView" bundle:nil];
 	self.settingsView = [[SettingsView alloc] initWithNibName:@"SettingsView" bundle:nil];
 
 	NavigationController *navController1 = [[NavigationController alloc] initWithRootViewController:self.transView];
-	NavigationController *navController3 = [[NavigationController alloc] initWithRootViewController:self.recentView];
-	NavigationController *navController4 = [[NavigationController alloc] initWithRootViewController:self.peopleView];
+	NavigationController *navController2 = [[NavigationController alloc] initWithRootViewController:self.translatorView];
+    NavigationController *navController3 = [[NavigationController alloc] initWithRootViewController:self.recentView];
+	//NavigationController *navController4 = [[NavigationController alloc] initWithRootViewController:self.peopleView];
 	NavigationController *navController5 = [[NavigationController alloc] initWithRootViewController:self.settingsView];
 
 	self.tabBarController = [[UITabBarController alloc] init];
-	self.tabBarController.viewControllers = @[navController1, navController3, navController4, navController5];
+	self.tabBarController.viewControllers = @[navController1, navController3, navController2, navController5];
 	self.tabBarController.tabBar.translucent = NO;
 
 	self.tabBarController.selectedIndex = DEFAULT_TAB;
@@ -71,7 +72,7 @@
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	[self.recentView view];
 	[self.transView view];
-	[self.peopleView view];
+	[self.translatorView view];
 	[self.settingsView view];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	return YES;
@@ -111,6 +112,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
+    //last active time
 	
 }
 
@@ -159,7 +161,9 @@
 		self.locationManager = [[CLLocationManager alloc] init];
 		[self.locationManager setDelegate:self];
 		[self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
-		[self.locationManager requestWhenInUseAuthorization];
+        if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [self.locationManager requestWhenInUseAuthorization];
+        }
 	}
 	[self.locationManager startUpdatingLocation];
 }

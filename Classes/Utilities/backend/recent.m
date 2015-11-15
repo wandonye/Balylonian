@@ -133,20 +133,20 @@ void RestartRecentChat(NSDictionary *recent)
 void CreateRecent(NSString *userId, NSString *groupId, NSArray *members, NSString *description, NSString *profileId, NSString *type)
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
-	Firebase *firebase = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"%@/TranslatorChat", FIREBASE]];
-	FQuery *query = [[firebase queryOrderedByChild:@"translatorId"] queryEqualToValue:[PFUser currentId]];
+	Firebase *firebase = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"%@/Recent", FIREBASE]];
+	FQuery *query = [[firebase queryOrderedByChild:@"groupId"] queryEqualToValue:groupId];
 	[query observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot)
 	{
 		BOOL create = YES;
-		//-----------------------------------------When translatorId doesn't exist--------
+		//-----------------------------------------------------------------------------------------------------------------------------------------
 		if (snapshot.value != [NSNull null])
 		{
 			for (NSDictionary *recent in [snapshot.value allValues])
 			{
-				if ([recent[@"translatorId"] isEqualToString:userId]) create = NO;
+				if ([recent[@"userId"] isEqualToString:userId]) create = NO;
 			}
 		}
-		//----------------------------------------------------------------------------------
+		//-----------------------------------------------------------------------------------------------------------------------------------------
 		if (create) CreateRecentItem(userId, groupId, members, description, profileId, type);
 	}];
 }
@@ -181,12 +181,13 @@ void CreateRecents(NSString *groupId, NSArray *members, NSString *description, N
 void CreateRecentItem(NSString *userId, NSString *groupId, NSArray *members, NSString *description, NSString *profileId, NSString *type)
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
-	Firebase *firebase = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"%@/TranslatorChat", FIREBASE]];
-    Firebase *reference = [firebase childByAppendingPath:userId];
+	Firebase *firebase = [[Firebase alloc] initWithUrl:[NSString stringWithFormat:@"%@/Recent", FIREBASE]];
+	Firebase *reference = [firebase childByAutoId];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
+	NSString *recentId = reference.key;
 	NSString *date = Date2String([NSDate date]);
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	NSDictionary *recent = @{@"translatorId":userId, @"groupId":groupId, @"members":members, @"description":description,
+	NSDictionary *recent = @{@"recentId":recentId, @"userId":userId, @"groupId":groupId, @"members":members, @"description":description,
 								@"lastMessage":@"", @"counter":@0, @"date":date, @"profileId":profileId, @"type":type, @"password":@""};
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	[reference setValue:recent withCompletionBlock:^(NSError *error, Firebase *ref)
